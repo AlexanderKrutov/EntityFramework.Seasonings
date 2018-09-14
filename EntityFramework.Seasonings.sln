@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Seasonings", "EntityFramework.Seasonings.csproj", "{A8C62050-B9FF-41F1-84DB-829C267228C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Seasonings", "EntityFramework.Seasonings\EntityFramework.Seasonings.csproj", "{A8C62050-B9FF-41F1-84DB-829C267228C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Seasonings.Tests", "..\EntityFramework.Seasonings.Tests\EntityFramework.Seasonings.Tests.csproj", "{AB8F7820-E608-4C61-9030-6255C508860B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Seasonings.Tests", "EntityFramework.Seasonings.Tests\EntityFramework.Seasonings.Tests.csproj", "{AB8F7820-E608-4C61-9030-6255C508860B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

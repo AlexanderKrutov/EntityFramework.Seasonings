@@ -375,12 +375,23 @@ namespace EntityFramework.Seasonings
             return entityTypes.FirstOrDefault(et => objectItemCollection.GetClrType(et) == type);
         }
 
-        private static List<string> GetNavigationPropertiesNames(DbContext ctx, Type type, string prefix = null)
+        private static List<string> GetNavigationPropertiesNames(DbContext ctx, Type type, List<Type> processedTypes = null, string prefix = null)
         {
             List<string> names = new List<string>();
             EntityType entityType = ctx.GetEntityType(type);
+
             if (entityType != null)
             {
+                if (processedTypes == null)
+                {
+                    processedTypes = new List<Type>();
+                }
+
+                if (!processedTypes.Contains(type))
+                {
+                    processedTypes.Add(type);
+                }
+
                 var navProperties = entityType.NavigationProperties.ToArray();
                 foreach (var prop in navProperties)
                 {
@@ -391,8 +402,11 @@ namespace EntityFramework.Seasonings
                         propType = propType.GetGenericArguments()[0];
                     }
 
-                    names.Add(propName);
-                    names.AddRange(GetNavigationPropertiesNames(ctx, propType, propName));
+                    if (!processedTypes.Contains(propType))
+                    {
+                        names.Add(propName);
+                        names.AddRange(GetNavigationPropertiesNames(ctx, propType, processedTypes, propName));
+                    }
                 }
             }
 

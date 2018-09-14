@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace EntityFramework.Seasonings.Tests.Models
 {
-    public class Post
+    public class Author
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-        public int BlogId { get; set; }
-        public string Text { get; set; }
-        public int AuthorId { get; set; }
-        public virtual Author Author { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }
